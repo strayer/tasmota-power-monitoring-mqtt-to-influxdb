@@ -102,7 +102,7 @@ def main():
         password=os.getenv("INFLUXDB_PASSWORD"),
         database=os.getenv("INFLUXDB_DB"),
         ssl=boolean_env_is_true("INFLUXDB_SSL"),
-        verify_ssl=boolean_env_is_true("INFLUXDB_NO_VERIFY_SSL"),
+        verify_ssl=not boolean_env_is_true("INFLUXDB_NO_VERIFY_SSL"),
     )
 
     mqtt_client = mqtt.Client(userdata={"influxdb_client": influxdb_client})
