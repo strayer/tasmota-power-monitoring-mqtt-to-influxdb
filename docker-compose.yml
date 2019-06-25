@@ -1,0 +1,28 @@
+version: "3.7"
+
+volumes:
+  influxdata:
+
+services:
+  app:
+    build: .
+    environment:
+      INFLUXDB_HOST: influxdb
+      INFLUXDB_USER: user
+      INFLUXDB_PASSWORD: user
+      INFLUXDB_DB: tasmota
+      MQTT_HOST: 192.168.178.3
+  influxdb:
+    image: influxdb:1.7
+    ports:
+      - 127.0.0.1:8086:8086
+    environment:
+      INFLUXDB_HTTP_AUTH_ENABLED: "true"
+      INFLUXDB_ADMIN_USER: root
+      INFLUXDB_ADMIN_PASSWORD: root
+      INFLUXDB_USER: user
+      INFLUXDB_USER_PASSWORD: user
+      INFLUXDB_REPORTING_DISABLED: "true"
+      INFLUXDB_DB: tasmota
+    volumes:
+      - influxdata:/var/lib/influxdb
