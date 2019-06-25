@@ -2,8 +2,6 @@ FROM python:3.7 AS build
 
 WORKDIR /app
 
-RUN pip --no-cache-dir install nuitka
-
 RUN pip --no-cache-dir install poetry==0.12.16
 
 RUN poetry config settings.virtualenvs.in-project true
