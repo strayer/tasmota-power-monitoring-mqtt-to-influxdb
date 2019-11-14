@@ -7,7 +7,7 @@ import time
 from influxdb import InfluxDBClient
 
 
-BASE_TOPIC = "tele/aquarium/"
+BASE_TOPIC = "tele/power_meter/"
 MEASUREMENT = os.getenv("INFLUXDB_DB")
 TIMEZONE = "Z"
 LOGLEVEL = os.getenv("LOGLEVEL", "INFO")

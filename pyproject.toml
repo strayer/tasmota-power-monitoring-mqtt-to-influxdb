@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tasmota-power-monitoring-mqtt-to-influxdb"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Sven Grunewaldt <strayer@olle-orks.org>"]
 license = "GPL-3.0-or-later"
