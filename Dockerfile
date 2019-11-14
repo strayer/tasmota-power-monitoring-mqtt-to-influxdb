@@ -1,8 +1,8 @@
-FROM python:3.7 AS build
+FROM python:3.8 AS build
 
 WORKDIR /app
 
-RUN pip --no-cache-dir install poetry==0.12.16
+RUN pip --no-cache-dir install poetry==1.0.0b4
 
 RUN poetry config settings.virtualenvs.in-project true
 
@@ -12,7 +12,7 @@ RUN poetry install --no-dev
 
 COPY main.py ./
 
-FROM python:3.7-slim AS runtime
+FROM python:3.8-slim AS runtime
 
 WORKDIR /app
 ENV PATH="/app/.venv/bin:$PATH"
